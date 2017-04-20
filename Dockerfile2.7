@@ -1,0 +1,36 @@
+#to build 3hdeng/sense2vec:2.7
+# FROM python:2.7
+FROM 3hdeng/tensorflow-bazel:cpu
+MAINTAINER 3hdeng
+RUN pip install 'cython<0.24'
+RUN pip install 'numpy>=1.7'
+RUN pip install 'ujson>=1.34'
+RUN pip install 'preshed>=0.46,<0.47'
+RUN pip install 'murmurhash>=0.26,<0.27'
+RUN pip install 'cymem>=1.30,<1.32'
+RUN pip install 'sputnik>=0.9.0,<0.10.0'
+RUN pip install pytest
+RUN pip install 'spacy>=0.100,<0.101'
+#
+COPY .  /opt/sense2vec/
+WORKDIR /opt/sense2vec
+#RUN pip install -r requirements.txt &&  echo "pip install -r requirements.txt"
+#RUN pip install -e . && echo "pip install sense2vec"
+#RUN sputnik --name sense2vec --repository-url http://index.spacy.io install reddit_vectors
+
+#RUN  pip install -U spacy &&  echo "spacy installed"
+#RUN  python -m spacy.en.download all
+#RUN python -m spacy.en.download parser && echo "english parser installed"
+#RUN python -m spacy.en.download glove && echo "english glove installed"
+
+# to shrink image size, place data in the host instead of in the container
+# manual download or 
+# docker cp /usr/local/lib/python3.6/site-packages/spacy/data ./
+
+#
+# RUN  pip install matplotlib && echo "matplotlib installed"
+
+#=========
+# RUN  pip install feedparser && echo "feedparser installed"
+# RUN  pip install beautifulsoup4 && echo "beautifulsoup4 installed"
+CMD []
