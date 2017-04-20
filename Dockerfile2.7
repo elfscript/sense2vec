@@ -15,7 +15,7 @@ RUN pip install 'spacy>=0.100,<0.101'
 COPY .  /opt/sense2vec/
 WORKDIR /opt/sense2vec
 #RUN pip install -r requirements.txt &&  echo "pip install -r requirements.txt"
-#RUN pip install -e . && echo "pip install sense2vec"
+RUN pip install -e . && echo "pip install sense2vec done"
 #RUN sputnik --name sense2vec --repository-url http://index.spacy.io install reddit_vectors
 
 #RUN  pip install -U spacy &&  echo "spacy installed"

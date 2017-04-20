@@ -154,6 +154,11 @@ cdef class VectorMap:
         indices, scores = self.data.most_similar(vector, n)
         return [self.strings[idx] for idx in indices], scores
 
+    def most_similar2(self, unicode string, int n=10):
+        cdef float[:] vector
+        _, vector=self[string] 
+        return self.most_similar(vector,n)
+
     def add(self, unicode string, int freq, float[:] vector):
         '''Insert a vector into the map by value. Makes a copy of the vector.
         '''
