@@ -117,8 +117,8 @@ def parse_and_transform2( input_, out_dir):
     nlp.matcher = None
     with io.open(out_loc, 'w', encoding='utf8') as file_:
         for text in input_:
-            file_.write(text+'\n')
-            #file_.write(transform_doc(nlp(strip_meta(text))))
+            #file_.write(text+'\n')
+            file_.write(transform_doc(nlp(strip_meta(text))))
    #except Exception as e:
    # print("sth wrong in parse_and_transform", e)
    except:

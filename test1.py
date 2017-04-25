@@ -5,7 +5,15 @@
 import sense2vec
 model = sense2vec.load()
 freq, query_vector = model[u"natural_language_processing|NOUN"]
-print(model.most_similar(query_vector, n=3))
+#print(model.most_similar(query_vector, n=3))
+#print(model.most_similar2(u"pig|NOUN",3))
+#print(model.most_similar2(u"bat|NOUN",3))
+#print(model.most_similar2(u"bat|VERB",3))
+print( model.similarity(u'multiplayer_game|NOUN', u'game|NOUN') )
+print( model.similarity(u'makeup|NOUN', u'make_up|VERB') )
+print( model.similarity(u'downtown|NOUN', u'down|NOUN') )
+
+exit()
 
 freq, query_vector = model[u"bat|VERB"]
 print(model.most_similar(query_vector, n=3))

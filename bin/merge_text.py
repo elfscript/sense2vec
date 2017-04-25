@@ -48,9 +48,16 @@ def parallelize(func, iterator, n_jobs, extra):
 
 
 def iter_comments(loc):
+   if loc.endswith(".bz2"):
     with bz2.BZ2File(loc) as file_:
         for i, line in enumerate(file_):
             yield ujson.loads(line)['body']
+   else :
+    print("non-bz2 file")
+    with io.open(loc,'r',encoding='utf8') as file_:
+        for  line in file_:
+            yield line
+
 
 
 pre_format_re = re.compile(r'^[\`\*\~]')
